@@ -2,7 +2,6 @@
 
 const util 								= require("util");
 var express 							= require("express");
-var bodyParser 							= require("body-parser");
 
 var CmdLineClass						= require('./lib/hndlCmdLine'); 
 
@@ -15,63 +14,6 @@ const HTTP_IATP							= 418;
 
 var hooverBag	= [];
 
-function renderChart_01(){
-	
-	return ( {
-        type: 'pie',
-        data: {
-            datasets: [{
-                data: [
-                    STUB_STATV[STUB_STAT_CREATE_F],
-                    STUB_STATV[STUB_STAT_CREATE_S],
-                    STUB_STATV[STUB_STAT_FINDCUS_F],
-                    STUB_STATV[STUB_STAT_FINDCUS_S],
-                    STUB_STATV[STUB_STAT_RETACC_F],
-                    STUB_STATV[STUB_STAT_RETACC_S],
-                    STUB_STATV[STUB_STAT_SEARCHP_F],
-                    STUB_STATV[STUB_STAT_SEARCHP_S]
-                ],
-                backgroundColor: [
-                    'rgba(255,99,  132, 0.2)',  // STUB_STAT_CREATE_F
-			        'rgba(54, 162, 235, 0.2)',	// STUB_STAT_CREATE_S
-			        'rgba(155,99,  132, 0.2)',  // STUB_STAT_FINDC_F
-			        'rgba(54, 262, 235, 0.2)',	// STUB_STAT_FINDC_S
-			        'rgba(155,99,  0, 0.2)',  // STUB_STAT_RETACC_F
-			        'rgba(54, 052, 235, 0.2)',	// STUB_STAT_RETACC_S
-			        'rgba(10,99,  0, 0.2)',  	// STUB_STAT_SEARCH_F
-			        'rgba(100, 052, 235, 0.2)'	// STUB_STAT_SEARCHP_S
-                ],
-                borderColor: [
-			    	'rgba(255, 99 , 132, 1 )',		// STUB_STAT_CREATE_F
-			        'rgba(54 , 162, 235, 1)',		// STUB_STAT_CREATE_S
-			        'rgba(155,99,  132, 1)',  	// STUB_STAT_FINDC_F
-			        'rgba(54, 262, 235, 1)',		// STUB_STAT_FINDC_S
-			        'rgba(155,99,  0, 1)',  	// STUB_STAT_RETACC_F
-			        'rgba(54, 052, 235, 1)'	,	// STUB_STAT_RETACC_S
-			         'rgba(10,99,  0, 0.2)',  	// STUB_STAT_SEARCH_F
-			        'rgba(100, 052, 235, 0.2)'	// STUB_STAT_SEARCHP_S
-			    ],
-			    borderWidth: 1,
-                label: 'Dataset 1'
-            }],
-            labels: [
-                "cir-create-failure",
-                "cir-create-success",
-                "crm-findcust-failure",
-                "crm-findcust-success",
-                 "sv-retacc-failure",
-                "sv-retacc-success",
-                "crm-searchpackage-failure",
-                "crm-searchpackage-success"
-            ]
-        },
-        options: {
-            responsive: true
-        }
-    });
-
-	
-}
 function setIPWhiteList( _a){
 	try{
 		//util.log(`[INFO] IP Whitelist -${_a}`);
@@ -180,9 +122,6 @@ function renderHTMLPage(req, res){
  console.dir(CmdLineArgs);
 
  setIPWhiteList( CmdLineArgs.get('--ips'));
-
-//app.use(auth,bodyParser.json());
-//app.use(auth,bodyParser.urlencoded({ extended: false }));
 
 app.use(auth,function(req, res, next) {
 	//util.log(`std route:${req.method} request for '${req.url}'`);
