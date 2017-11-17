@@ -1,0 +1,25 @@
+{
+  "name": "iphoover",
+  "version": "1.0.0",
+  "description": "",
+  "main": "iphoover.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hndl/iphoover.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Hndl/iphoover/issues"
+  },
+  "homepage": "https://github.com/Hndl/iphoover#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
